@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, DateTime, String, func, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, String, func, ForeignKey
 from database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Enum as SAEnum
@@ -10,9 +10,11 @@ class Interacao(Base):
     id=Column(Integer, autoincrement=True, primary_key=True)
     tipo = Column(SAEnum(TiposInteracoesEnum), nullable=False)
     descricao = Column(String(80), nullable=False)
-
     cliente_id = Column(Integer, ForeignKey('clientes.id'), nullable=False)
-    usuario_id = Column(Integer, ForeignKey('usuarios.id'), nullable=False)
+    usuario_id = Column(Integer, ForeignKey('usuarios.id'), nullable=True)
+    empresa_id = Column(Integer, ForeignKey('empresas.id'), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     cliente = relationship('Cliente', back_populates='interacoes')
-    usuario_id = relationship('Usuario', back_populates='interacoes')
+    usuario = relationship('Usuario', back_populates='interacoes')
+    empresa = relationship('Empresa', back_populates='interacoes')

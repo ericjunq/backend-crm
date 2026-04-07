@@ -2,6 +2,7 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional, Literal
 from datetime import datetime
 from security.validations import CPF, CNPJ, Telefone
+from enums import TiposInteracoesEnum, DataFilterEnum
 
 # Empresa
 class EmpresaSchema(BaseModel):
@@ -85,3 +86,21 @@ class ClienteInfoUpdate(BaseModel):
 
 class ResponsavelClienteUpdate(BaseModel):
     usuario_id: Optional[int] = None
+
+# Interacoes
+class InteracaoSchema(BaseModel):
+    tipo: TiposInteracoesEnum
+    descricao: str
+
+class InteracaoFilter(BaseModel):
+    data_filter: Optional[DataFilterEnum] = None
+
+class InteracaoResponse(BaseModel):
+    id: int 
+    tipo: TiposInteracoesEnum
+    descricao: str 
+    cliente_id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True

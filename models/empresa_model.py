@@ -19,4 +19,5 @@ class Empresa(Base):
 
     usuarios = relationship('Usuario', back_populates='empresa')
     clientes = relationship('Cliente', back_populates='empresa')
+    interacoes = relationship('Interacao', back_populates='empresa')
     token_invite = relationship('TokenInvite', back_populates='empresa')

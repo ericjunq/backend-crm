@@ -15,3 +15,12 @@ class TiposInteracoesEnum(str, Enum):
     email = 'email'
     ligacao = 'ligacao'
     mensagens = 'mensagens'
+    presencial = 'presencial'
+
+class DataFilterEnum(str, Enum):
+    dia = 'dia'
+    semana = 'semana'
+    mes = 'mes'
+    trimestre = 'trimestre'
+    semestre = 'semestre'
+    ano = 'ano'
