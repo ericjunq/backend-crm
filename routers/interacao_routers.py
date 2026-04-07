@@ -8,8 +8,7 @@ from models.usuario_model import Usuario
 from models.empresa_model import Empresa
 from typing import Optional, List
 from security.security import get_current_empresa, get_current_usuario
-from enums import DataFilterEnum
-from datetime import datetime, timedelta, timezone, date
+from datetime import datetime, timedelta, timezone
 
 interacao_router = APIRouter(prefix='/interacoes', tags=['interacoes'])
 

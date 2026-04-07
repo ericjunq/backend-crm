@@ -24,3 +24,7 @@ class DataFilterEnum(str, Enum):
     trimestre = 'trimestre'
     semestre = 'semestre'
     ano = 'ano'
+
+class FormatoDownload(str,Enum):
+    csv = 'csv'
+    excel = 'excel'

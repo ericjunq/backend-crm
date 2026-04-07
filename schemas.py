@@ -104,3 +104,12 @@ class InteracaoResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+# Relatorios
+class RelatorioResponse(BaseModel):
+    total_clientes: int 
+    total_interacoes: int 
+    total_vendas: int 
+    faturamento: float 
+    taxa_conversao: float 
+    periodo: DataFilterEnum
