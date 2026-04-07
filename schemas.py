@@ -82,3 +82,6 @@ class ClienteInfoUpdate(BaseModel):
     email: Optional[EmailStr] = None 
     telefone: Optional[str] = None
     descricao_servico: Optional[str] = None 
+
+class ResponsavelClienteUpdate(BaseModel):
+    usuario_id: Optional[int] = None
